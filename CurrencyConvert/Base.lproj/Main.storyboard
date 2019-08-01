@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="VQG-Rd-WCm">
-                                <rect key="frame" x="233" y="28" width="302" height="133"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="VQG-Rd-WCm">
+                                <rect key="frame" x="233" y="28" width="302" height="125"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Balance for Euro Account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yD-Fp-jgx">
                                         <rect key="frame" x="0.0" y="0.0" width="302" height="50.5"/>
@@ -28,12 +28,15 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000.00 EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beR-c9-Ou4">
-                                        <rect key="frame" x="31" y="82.5" width="240" height="50.5"/>
+                                        <rect key="frame" x="31" y="74.5" width="240" height="50.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="42"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="Pq2-Xt-tXn"/>
+                                </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKX-Qw-2ia">
                                 <rect key="frame" x="234" y="506" width="300" height="32"/>
@@ -45,8 +48,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="NkO-cG-a9N">
-                                <rect key="frame" x="0.0" y="169" width="768" height="216"/>
+                            <pickerView contentMode="scaleToFill" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="NkO-cG-a9N">
+                                <rect key="frame" x="0.0" y="161" width="768" height="216"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUz-y0-vPZ" customClass="BorderedButton" customModule="CurrencyConvert" customModuleProvider="target">
                                 <rect key="frame" x="328.5" y="662" width="111" height="51"/>
@@ -59,9 +62,12 @@
                                     <action selector="transferCurrencyTouchedUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MMI-g2-fwB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zK7-E3-TaN">
-                                <rect key="frame" x="16" y="393" width="736" height="0.0"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zK7-E3-TaN">
+                                <rect key="frame" x="16" y="377" width="736" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="ZJq-Gv-gyt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -91,11 +97,21 @@
                                     </pickerView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZQ-AE-mdE">
+                                <rect key="frame" x="290.5" y="729" width="187" height="30"/>
+                                <state key="normal" title="View total commission fees">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="totalCommissionTouchedUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lC2-vi-eMs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="eZQ-AE-mdE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1VM-4B-Lnh"/>
                             <constraint firstItem="zK7-E3-TaN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9Ce-6C-sXh"/>
-                            <constraint firstItem="zK7-E3-TaN" firstAttribute="top" secondItem="NkO-cG-a9N" secondAttribute="bottom" constant="8" id="A55-Ad-IOR"/>
+                            <constraint firstItem="zK7-E3-TaN" firstAttribute="top" secondItem="NkO-cG-a9N" secondAttribute="bottom" id="A55-Ad-IOR"/>
                             <constraint firstItem="Dl4-1M-nVT" firstAttribute="width" secondItem="XKX-Qw-2ia" secondAttribute="width" id="AfP-zc-S4m"/>
                             <constraint firstItem="VQG-Rd-WCm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="CfL-Lh-R9T"/>
                             <constraint firstItem="NkO-cG-a9N" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="K7h-8W-kMV"/>
@@ -107,6 +123,7 @@
                             <constraint firstItem="Dl4-1M-nVT" firstAttribute="top" secondItem="XKX-Qw-2ia" secondAttribute="bottom" constant="8" id="d5h-w8-i1J"/>
                             <constraint firstItem="rUz-y0-vPZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eWD-VS-2yG"/>
                             <constraint firstItem="XKX-Qw-2ia" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zK7-E3-TaN" secondAttribute="bottom" constant="8" id="g5E-Go-OYC"/>
+                            <constraint firstItem="eZQ-AE-mdE" firstAttribute="top" secondItem="rUz-y0-vPZ" secondAttribute="bottom" constant="16" id="gs5-l5-mze"/>
                             <constraint firstItem="XKX-Qw-2ia" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kt4-FX-OiC"/>
                             <constraint firstItem="rUz-y0-vPZ" firstAttribute="top" secondItem="Dl4-1M-nVT" secondAttribute="bottom" constant="16" id="lb6-U1-H9M"/>
                             <constraint firstItem="NkO-cG-a9N" firstAttribute="top" secondItem="VQG-Rd-WCm" secondAttribute="bottom" constant="8" id="tO6-AN-Hm2"/>
@@ -120,6 +137,7 @@
                         <outlet property="currentBalanceInfoLabel" destination="6yD-Fp-jgx" id="2l0-Nw-THF"/>
                         <outlet property="fromPickerView" destination="IZn-ac-Ts2" id="jbp-d8-wzm"/>
                         <outlet property="toPickerView" destination="Vwv-pn-GM7" id="O0m-hs-Mh6"/>
+                        <outlet property="totalCommissionButton" destination="eZQ-AE-mdE" id="GWR-WE-Qua"/>
                         <outlet property="transferActionButton" destination="rUz-y0-vPZ" id="hNI-rL-hQi"/>
                         <outlet property="transferSuccessInfoLabel" destination="zK7-E3-TaN" id="Kh1-sl-8vK"/>
                         <outletCollection property="currencyPickerViewCollection" destination="NkO-cG-a9N" collectionClass="NSMutableArray" id="O44-p6-igB"/>

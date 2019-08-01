@@ -23,6 +23,7 @@ class ConverterViewController: UIViewController {
     
     @IBOutlet weak var amountTextField: UITextField!
     
+    @IBOutlet weak var totalCommissionButton: UIButton!
     @IBOutlet weak var transferActionButton: BorderedButton!
     //Constraints
     
@@ -54,13 +55,24 @@ class ConverterViewController: UIViewController {
             if success {
                 self.transferSuccessInfoLabel.text = message
             } else {
-                let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .destructive, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                self.presentAlertController(title: "Error", message: message)
             }
         }
     }
+    
+    @IBAction func totalCommissionTouchedUp(_ sender: UIButton) {
+        let totalComission = UserDefaults.standard.value(forKey: self.currencyManager.commissionFeesKey + self.selectedCurrencyBalance.rawValue) as? Double ?? 0.0
+        
+        self.presentAlertController(title: "Total Commission Fees", message: "You have a total of \(totalComission.rounded()) in commission fees for \(self.selectedCurrencyBalance) account")
+    }
+    
+    func presentAlertController(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .destructive, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: - UITextFieldDelegate

@@ -25,6 +25,8 @@ class CurrencyManager: NSObject {
     // MARK: - Variables
     fileprivate let userID: String = "firstUserID"
     fileprivate var defaultFreeInstance: Int = 5
+    var commissionFeesKey: String = "CommissionFees"
+    var currentCurrencyBalance: Currency = .EUR
     var delegate: CurrencyManagerProtocol?
     
     // MARK: - Conversion
@@ -50,6 +52,7 @@ class CurrencyManager: NSObject {
                         completed(true, "You have converted \(amount.rounded()) \(from.rawValue) to \(convertedAmount) \(currency.rawValue).")
                     } else {
                         subtractedAmount += amount.conversion()
+                        self.saveTotalCommissions(with: amount.conversion(), currency: from)
                         completed(true, "You have converted \(amount.rounded()) \(from.rawValue) to \(convertedAmount) \(currency.rawValue). Commission Fee - \(amount.conversion().rounded()) \(from.rawValue).")
                     }
                 })
@@ -103,6 +106,16 @@ class CurrencyManager: NSObject {
             case .JPY, .USD:
                 return 0
             }
+        }
+    }
+    
+    // MARK: - Total Commission Fees
+    func saveTotalCommissions(with fee: Double, currency: Currency) {
+        if var commissionFee = UserDefaults.standard.value(forKey: commissionFeesKey + currency.rawValue) as? Double {
+            commissionFee += fee
+            UserDefaults.standard.setValue(commissionFee, forKey: commissionFeesKey + currency.rawValue)
+        } else {
+            UserDefaults.standard.setValue(fee, forKey: commissionFeesKey + currency.rawValue)
         }
     }
     
