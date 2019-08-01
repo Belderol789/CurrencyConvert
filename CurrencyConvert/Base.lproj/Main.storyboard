@@ -1,24 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Converter View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ConverterViewController" customModule="CurrencyConvert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="VQG-Rd-WCm">
+                                <rect key="frame" x="233" y="28" width="302" height="133"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Balance for Euro Account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yD-Fp-jgx">
+                                        <rect key="frame" x="0.0" y="0.0" width="302" height="50.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000.00 EUR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beR-c9-Ou4">
+                                        <rect key="frame" x="31" y="82.5" width="240" height="50.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="42"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKX-Qw-2ia">
+                                <rect key="frame" x="234" y="506" width="300" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="4Fd-07-Dc5"/>
+                                    <constraint firstAttribute="height" constant="32" id="yw2-fo-P4B"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="NkO-cG-a9N">
+                                <rect key="frame" x="0.0" y="169" width="768" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUz-y0-vPZ" customClass="BorderedButton" customModule="CurrencyConvert" customModuleProvider="target">
+                                <rect key="frame" x="328.5" y="662" width="111" height="51"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Transfer">
+                                    <color key="titleColor" red="0.054901960780000002" green="0.054901960780000002" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="transferCurrencyTouchedUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MMI-g2-fwB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zK7-E3-TaN">
+                                <rect key="frame" x="16" y="393" width="736" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Dl4-1M-nVT">
+                                <rect key="frame" x="234" y="546" width="300" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txA-Yb-o1m">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZn-ac-Ts2">
+                                        <rect key="frame" x="75" y="0.0" width="75" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="jln-ol-8YC"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3p2-es-JHM">
+                                        <rect key="frame" x="150" y="0.0" width="75" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwv-pn-GM7">
+                                        <rect key="frame" x="225" y="0.0" width="75" height="100"/>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zK7-E3-TaN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9Ce-6C-sXh"/>
+                            <constraint firstItem="zK7-E3-TaN" firstAttribute="top" secondItem="NkO-cG-a9N" secondAttribute="bottom" constant="8" id="A55-Ad-IOR"/>
+                            <constraint firstItem="Dl4-1M-nVT" firstAttribute="width" secondItem="XKX-Qw-2ia" secondAttribute="width" id="AfP-zc-S4m"/>
+                            <constraint firstItem="VQG-Rd-WCm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="CfL-Lh-R9T"/>
+                            <constraint firstItem="NkO-cG-a9N" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="K7h-8W-kMV"/>
+                            <constraint firstItem="VQG-Rd-WCm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NRn-Ig-OfU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zK7-E3-TaN" secondAttribute="trailing" constant="16" id="UbJ-Oo-NGV"/>
+                            <constraint firstItem="NkO-cG-a9N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XGd-GP-x85"/>
+                            <constraint firstItem="XKX-Qw-2ia" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="XZs-5F-aDE"/>
+                            <constraint firstItem="Dl4-1M-nVT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Xnp-6a-QLf"/>
+                            <constraint firstItem="Dl4-1M-nVT" firstAttribute="top" secondItem="XKX-Qw-2ia" secondAttribute="bottom" constant="8" id="d5h-w8-i1J"/>
+                            <constraint firstItem="rUz-y0-vPZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eWD-VS-2yG"/>
+                            <constraint firstItem="XKX-Qw-2ia" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zK7-E3-TaN" secondAttribute="bottom" constant="8" id="g5E-Go-OYC"/>
+                            <constraint firstItem="XKX-Qw-2ia" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kt4-FX-OiC"/>
+                            <constraint firstItem="rUz-y0-vPZ" firstAttribute="top" secondItem="Dl4-1M-nVT" secondAttribute="bottom" constant="16" id="lb6-U1-H9M"/>
+                            <constraint firstItem="NkO-cG-a9N" firstAttribute="top" secondItem="VQG-Rd-WCm" secondAttribute="bottom" constant="8" id="tO6-AN-Hm2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="amountTextField" destination="XKX-Qw-2ia" id="2mU-4O-EBY"/>
+                        <outlet property="currencyPickerView" destination="NkO-cG-a9N" id="vP3-U1-2mm"/>
+                        <outlet property="currentBalanceAmountLabel" destination="beR-c9-Ou4" id="ZXS-CT-tt2"/>
+                        <outlet property="currentBalanceInfoLabel" destination="6yD-Fp-jgx" id="2l0-Nw-THF"/>
+                        <outlet property="fromPickerView" destination="IZn-ac-Ts2" id="jbp-d8-wzm"/>
+                        <outlet property="toPickerView" destination="Vwv-pn-GM7" id="O0m-hs-Mh6"/>
+                        <outlet property="transferActionButton" destination="rUz-y0-vPZ" id="hNI-rL-hQi"/>
+                        <outlet property="transferSuccessInfoLabel" destination="zK7-E3-TaN" id="Kh1-sl-8vK"/>
+                        <outletCollection property="currencyPickerViewCollection" destination="NkO-cG-a9N" collectionClass="NSMutableArray" id="O44-p6-igB"/>
+                        <outletCollection property="currencyPickerViewCollection" destination="IZn-ac-Ts2" collectionClass="NSMutableArray" id="3Ms-h9-KQS"/>
+                        <outletCollection property="currencyPickerViewCollection" destination="Vwv-pn-GM7" collectionClass="NSMutableArray" id="9h2-X9-RvZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140.625" y="116.60156249999999"/>
         </scene>
     </scenes>
 </document>
